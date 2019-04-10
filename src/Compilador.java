@@ -1,15 +1,26 @@
-import java.io.FileInputStream;
-
 public class Compilador {
 
-	public TabelaDeSimbolos tabelaDeSimbolos;
-	public static AnalisadorLexico analisadorLexico;
-	public AnalisadorSintatico analisadorSintatico;
-	public AnalisadorSemantico analisadorSemantico;
+	private TabelaDeSimbolos tabelaDeSimbolos;
 
-	public static void compilar(String codigo) {
+	private AnalisadorLexico analisadorLexico;
 
-		TabelaDeSimbolos tabelaDeSimbolos = new TabelaDeSimbolos(analisadorLexico.analisarEPegarSimbolos(codigo));
+	private AnalisadorSintatico analisadorSintatico;
+
+	private AnalisadorSemantico analisadorSemantico;
+
+	public Compilador() {
+
+		this.tabelaDeSimbolos = new TabelaDeSimbolos();
+		this.analisadorLexico = new AnalisadorLexico();
+		this.analisadorSintatico = new AnalisadorSintatico();
+		this.analisadorSemantico = new AnalisadorSemantico();
+	}
+
+	public void compilar(Codigo codigo) {
+
+		TabelaDeSimbolos tabelaDeSimbolos = new TabelaDeSimbolos(this.analisadorLexico.analisarEPegarSimbolos(codigo));
+
+		System.out.println(tabelaDeSimbolos.toString());
 	}
 
 }

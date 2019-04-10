@@ -7,7 +7,12 @@ public class TabelaDeSimbolos {
 	public TabelaDeSimbolos(List<Simbolo> simbulos) {
 
 		this.simbulos = simbulos;
-		
+
+	}
+
+	public TabelaDeSimbolos() {
+
+
 	}
 
 }
