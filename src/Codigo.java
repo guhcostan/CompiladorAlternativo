@@ -1,8 +1,8 @@
 public class Codigo {
 
-	private String texto;
-
 	public int posicao;
+
+	private String texto;
 
 	public Codigo(String texto) {
 

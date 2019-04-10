@@ -9,11 +9,11 @@ public class AnalisadorLexico {
 
 		char digito;
 
-		while(codigo.temProximoDigito()){
+		while (codigo.temProximoDigito()) {
 			digito = codigo.proximoDigito();
-			if(digito == 'I' && codigo.temProximoDigito()){
+			if (digito == 'I' && codigo.temProximoDigito()) {
 
-				if(codigo.proximoDigito() == 'F'){
+				if (codigo.proximoDigito() == 'F') {
 
 					listaDeSimbolos.add(new Simbolo("IF", TipoLexema.CONDICIONAL));
 
