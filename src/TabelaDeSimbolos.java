@@ -2,9 +2,9 @@ import java.util.List;
 
 public class TabelaDeSimbolos {
 
-	private List<Simbolo> simbulos;
+	private List<Token> simbulos;
 
-	public TabelaDeSimbolos(List<Simbolo> simbulos) {
+	public TabelaDeSimbolos(List<Token> simbulos) {
 
 		this.simbulos = simbulos;
 

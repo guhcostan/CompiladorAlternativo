@@ -18,7 +18,9 @@ public class Compilador {
 
 	public void compilar(Codigo codigo) {
 
-		TabelaDeSimbolos tabelaDeSimbolos = new TabelaDeSimbolos(this.analisadorLexico.analisarEPegarSimbolos(codigo));
+		TabelaDeSimbolos tabelaDeSimbolos = new TabelaDeSimbolos(
+			this.analisadorLexico.criarTokens(codigo)
+		);
 
 		System.out.println(tabelaDeSimbolos.toString());
 	}
