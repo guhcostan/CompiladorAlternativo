@@ -14,5 +14,7 @@ public class TabelaDeSimbolos {
 
 
 	}
+	//<VAR,1>token
+	//<1,asgdgshd>
 
 }

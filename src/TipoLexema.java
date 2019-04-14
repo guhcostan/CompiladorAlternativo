@@ -12,11 +12,14 @@ public enum TipoLexema {
 	IGUAL("IGUAL"),//=
 	RETURN("RETURN"),
 	CONDICIONAL("CONDICIONAL"),//  int, float, struct, if, else, while, void, return (caixa baixa)
-	IDENTIFICADOR("IDENTIFICADOR")
+    IDENTIFICADOR("IDENTIFICADOR"),
+    SEMICON("SEMICON"),
+    ASPAS("ASPAS")
 	;
 
 	private String name;
-	private TipoLexema(String name) {
+
+    TipoLexema(String name) {
 		this.name = name;
 	}
 
