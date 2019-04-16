@@ -14,7 +14,14 @@ public class Token {
 		this.valor = valor;
 	}
 
-	public String toString(){
-		return this.tipoLexema.getName() +"|"+ this.valor;
+	public String getValor() {
+
+		return valor;
 	}
+
+	public TipoLexema getTipoLexema() {
+
+		return tipoLexema;
+	}
+
 }

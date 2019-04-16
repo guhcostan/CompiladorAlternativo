@@ -1,7 +1,5 @@
 public class Compilador {
 
-	private TabelaDeSimbolos tabelaDeSimbolos;
-
 	private AnalisadorLexico analisadorLexico;
 
 	private AnalisadorSintatico analisadorSintatico;
@@ -10,7 +8,6 @@ public class Compilador {
 
 	public Compilador() {
 
-		this.tabelaDeSimbolos = new TabelaDeSimbolos();
 		this.analisadorLexico = new AnalisadorLexico();
 		this.analisadorSintatico = new AnalisadorSintatico();
 		this.analisadorSemantico = new AnalisadorSemantico();
@@ -18,11 +15,8 @@ public class Compilador {
 
 	public void compilar(Codigo codigo) {
 
-		TabelaDeSimbolos tabelaDeSimbolos = new TabelaDeSimbolos(
-			this.analisadorLexico.criarTokens(codigo)
-		);
+		this.analisadorLexico.criarTokens(codigo);
 
-		System.out.println(tabelaDeSimbolos.toString());
 	}
 
 }

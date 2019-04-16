@@ -1,12 +1,26 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class AnalisadorLexico {
 
     private Codigo codigo;
+
     private List<Token> tokens;
 
-    public List<Token> criarTokens(Codigo codigo) {
+	public List<Token> getTokens() {
+
+		return tokens;
+	}
+
+	public TabelaDeSimbolos getTabelaSimbolos() {
+
+		return tabelaSimbolos;
+	}
+
+	private TabelaDeSimbolos tabelaSimbolos = new TabelaDeSimbolos();
+
+	public List<Token> criarTokens(Codigo codigo) {
 
         this.codigo = codigo;
 
@@ -176,11 +190,28 @@ public class AnalisadorLexico {
         	System.out.println(this.codigo.toString());
             System.out.println(e);
         }
-        for (Token t : this.tokens) {
-            System.out.println(t.toString());
-        }
-        return this.tokens;
+		mostrarDados();
+		return this.tokens;
     }
+
+	private void mostrarDados() {
+
+		System.out.println("\n|--------------------------------------------------------|\n" +
+				             "|                       Tolkens                          |" +
+				           "\n|--------------------------------------------------------|\n" );
+		for (Token t : this.tokens) {
+			System.out.println(t.getTipoLexema() + " - " + t.getValor());
+		}
+
+		System.out.println(
+				"\n|--------------------------------------------------------|\n" +
+				  "|                  Tabela de Simbolos                    |" +
+				"\n|--------------------------------------------------------|\n" );
+		for (Simbolo s : this.tabelaSimbolos.getSimbulos()) {
+			System.out.println(s.getId() + " - " + s.getValue());
+		}
+
+	}
 
 	private void criarWhileOrId(char bufferDigito, String buffer) {
 		buffer += bufferDigito;
@@ -336,7 +367,9 @@ public class AnalisadorLexico {
                 this.tokens.add(t);
             }
         } else {
-            this.tokens.add(new Token(TipoLexema.IDENTIFICADOR, buffer));
+        	Simbolo novoSimbolo = new Simbolo(buffer);
+        	this.tabelaSimbolos.addSimbolo(novoSimbolo);
+            this.tokens.add(new Token(TipoLexema.IDENTIFICADOR, Integer.toString(novoSimbolo.getId())));
         }
     }
 
