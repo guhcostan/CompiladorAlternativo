@@ -24,8 +24,19 @@ public class TabelaDeSimbolos {
 	}
 
 	public int addSimbolo(Simbolo novoSimbolo) {
-		simbulos.add(novoSimbolo);
+		if(!this.alreadyExist(novoSimbolo)) {
+			simbulos.add(novoSimbolo);
+		}
 		return counter;
+	}
+	
+	public boolean alreadyExist(Simbolo novoSimbolo) {
+		for(Simbolo s : this.simbulos) {
+			if(s.getValue().equals(novoSimbolo.getValue())) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	//<VAR,1>token

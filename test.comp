@@ -2,8 +2,8 @@ int i = 0;
 int d = 10;
 float f = 1.2;
 char c = 'b';
-while(d > 0){
-	if(i != 0){
+while (d > 0 ) {
+	if (i != 0) {
 		d = 0;
 	}
 	d = d - 1;

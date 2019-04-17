@@ -161,6 +161,9 @@ public class AnalisadorLexico {
 			Simbolo novoSimbolo = new Simbolo(number);
 			this.tabelaSimbolos.addSimbolo(novoSimbolo);
 		    this.tokens.add(new Token(TipoLexema.NUMINT, Integer.toString(novoSimbolo.getId())));
+		    if(bufferDigito == ';' ) {
+		    	this.tokens.add(new Token(TipoLexema.SEMICON));
+		    }
 		}
 	}
 
