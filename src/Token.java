@@ -4,13 +4,16 @@
 
 public class Token {
 
-	private TipoLexema tipoLexema;
+	private TipoLexema tipoLexema = null;
 
-	private String valor; 
+	private String valor = null; 
 
-	public Token(TipoLexema tipo, String valor) {
-
+	public Token(TipoLexema tipo) {
 		this.tipoLexema = tipo;
+	}
+	
+	public Token(TipoLexema tipo, String valor) {
+		this(tipo);
 		this.valor = valor;
 	}
 
@@ -22,6 +25,11 @@ public class Token {
 	public TipoLexema getTipoLexema() {
 
 		return tipoLexema;
+	}
+	
+	public String toString() {
+		return "<" + ((this.valor == null)? this.tipoLexema.getName() : this.tipoLexema.getName()+ "," + this.valor) + ">";
+		
 	}
 
 }
